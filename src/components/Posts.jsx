@@ -1,11 +1,11 @@
 import React from "react";
-import "./UserPosts.css";
+import "./Posts.css";
 
 
 
 const Posts = ({ allPosts}) => {
   // const allPosts = props
-  console.log(allPosts)
+  //console.log(allPosts)
     return (
         <div className="user-posts">
           {allPosts.length && allPosts.map(({ _id, title, description, price, author, location}) => 

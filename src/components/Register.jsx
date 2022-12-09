@@ -16,7 +16,7 @@ const Register = ({setToken}) => {
             // setting token into global storage so it can be pulled throughout the app
            setToken(token);
            localStorage.setItem("token", token);
-           console.log("this is token in register", token)
+           //console.log("this is token in register", token)
            } catch (error) {
             console.error(error)
            }

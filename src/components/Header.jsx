@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import LogButton from "./LogOut"
+import LogButton from "./LogButton"
 // import { NavLink } from "react-router-dom";
 
 const Header = ({isLoggedIn}) => {
@@ -10,18 +10,18 @@ console.log("is header logged in", isLoggedIn)
     <div id="header">  
         <header>
         <h1>Strangers Things</h1>
-        <ul id="links">
-            <li>Home</li>
-            <li>Posts</li>
-            <li>Profile</li>
-        </ul>
+        <div id="links">
+            <div>Home</div>
+            <div>Posts</div>
+            <div>Profile</div>
+        </div>
          <div>
 {/* psuedo-code: if isLoggedIn is true then make the button a logout button and 
 when clicked delete our token from storage and re-render as a login <button></button> */}
 {/* else if isLoggedIn is false make the button a loging button that redirects to login page */}
             <LogButton 
             isLoggedIn={isLoggedIn}
-            content={ isLoggedIn ? 'Log Out' : 'Log In'}
+            content={ isLoggedIn ? 'Log Out' : 'Log In' }
             />
         </div>
     </header>

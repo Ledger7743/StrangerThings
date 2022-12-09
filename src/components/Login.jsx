@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import { loginUser } from "../api/auth";
-import LogButton from "./LogOut";
+import LogButton from "./LogButton";
 // import { storeCurrentUser } from "../auth";
 import "./Login.css";
 
@@ -18,13 +18,24 @@ const logInUser = async (e) =>{
      setToken(token);
      localStorage.setItem("token", token)
      !token ? setIsLoggedIn(false) : setIsLoggedIn(true)
-     console.log("show me islogged in", isLoggedIn)
+     //console.log("show me islogged in", isLoggedIn)
+     
 
     } catch (error) {
      console.error(error)
     }
  }
 
+ const logOutUser =async (e) =>{
+    try{
+        e.preventDefault();
+        isLoggedIn ? localStorage.removeItem("token") : console.log('cant log ya out')
+
+    } catch (error) {
+            console.error(error)
+           }
+        }
+    
 
 
     return <div>
@@ -32,7 +43,6 @@ const logInUser = async (e) =>{
             <h2>I am Login Below</h2>
             <input value={username} minLength={5} type='text' placeholder="username" onChange={(e)=>setUsername(e.target.value)}></input>
             <input value={password} minLength={5} type='password' placeholder='password' onChange={(e)=>setPassword(e.target.value)}></input>
-            <button type="login">login</button>
         </form>
         <LogButton 
             isLoggedIn={isLoggedIn}

@@ -6,6 +6,7 @@ import "./App.css";
  import { fetchMe, loginUser } from "./api/auth";
  import Login from "./components/Login";
  import Header from "./components/Header";
+ import PostForm from "./components/PostForm";
 //  import LogOutButton from "."
 //  import LogOut from "./components/LogOut";
  
@@ -56,7 +57,8 @@ useEffect(() =>{
   return (
     <div className="App">AppStuff
     <Header isLoggedIn={isLoggedIn} />
-  <Posts allPosts={allPosts} />
+  <Posts allPosts={allPosts} setAllPosts={setAllPosts}/>
+  <PostForm setAllPosts={setAllPosts} getAllPosts={getAllPosts}/>
   <h1>{user?.username} </h1>
   <Register setToken={setToken} />
   <Login setToken={setToken}
